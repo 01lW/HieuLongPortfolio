@@ -2,138 +2,304 @@
     ViewData["Title"] = "Home";
 }
 
-<section class="hero">
 
-    <div class="hero-content">
+<section class="about-section">
 
-        <p class="hero-small">
-            HELLO, I'M
-        </p>
 
-        <h1>
-            Hieu Long
+    <!-- ==============================
+         INTRODUCTION
+    =============================== -->
+
+    <div class="about-block first-about-block">
+
+        <h1 class="section-title">
+            Introduction
         </h1>
 
-        <h2>
-            Computer Engineering Technology
-        </h2>
 
-        <p class="hero-description">
+        <div class="content-box intro-box">
 
-            I build software, web applications
-            and technology projects using
-            modern development tools.
+            <h2>
+                Hieu Long Nguyen (Milo)
+            </h2>
 
-        </p>
+            <p class="intro-role">
+                Computer Engineering Technology
+            </p>
 
-        <div class="hero-buttons">
+            <p>
+                I'm a Computer Engineering Technology graduate
+                with experience in software development,
+                web development, embedded systems,
+                IoT and software testing.
+            </p>
 
-            <a asp-controller="Projects"
-               asp-action="Index"
-               class="btn btn-primary">
-
-                View Projects
-
-            </a>
-
-            <a asp-controller="Resume"
-               asp-action="Index"
-               class="btn btn-secondary">
-
-                View Resume
-
-            </a>
+            <p>
+                I enjoy building practical projects,
+                learning new technologies,
+                troubleshooting technical problems
+                and improving software through real-world testing.
+            </p>
 
         </div>
 
     </div>
 
-</section>
 
-<section class="home-options">
 
-    <div class="section-heading">
+    <!-- ==============================
+         EDUCATION
+    =============================== -->
 
-        <p>
-            EXPLORE
-        </p>
+    <div class="about-block">
 
-        <h2>
-            What would you like to see?
+        <h2 class="section-title">
+            Education
         </h2>
+
+
+        <div class="content-box">
+
+            <div class="timeline-item">
+
+                <div class="timeline-date">
+                    Sept 2023 - April 2026
+                </div>
+
+
+                <div class="timeline-content">
+
+                    <h3>
+                        Computer Engineering Technology
+                    </h3>
+
+                    <p class="highlight-text">
+                        Algonquin College
+                    </p>
+
+                    <p>
+                        Ottawa, Ontario
+                    </p>
+
+                    <p>
+                        Studied software development,
+                        web development, databases,
+                        networking, embedded systems and IoT.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
 
     </div>
 
-    <div class="option-grid">
 
-        <a asp-controller="Projects"
-           asp-action="Index"
-           class="option-card">
 
-            <div class="option-number">
-                01
+    <!-- ==============================
+         EXPERIENCE
+    =============================== -->
+
+    <div class="about-block">
+
+        <h2 class="section-title">
+            Experience
+        </h2>
+
+
+        <!-- LINKCLICKS -->
+
+        <div class="content-box experience-box">
+
+            <div class="timeline-item">
+
+                <div class="timeline-date">
+                    Aug 2026 - Present
+                </div>
+
+
+                <div class="timeline-content">
+
+                    <h3>
+                        QA / Software Testing Intern
+                    </h3>
+
+                    <p class="highlight-text">
+                        LinkClicks
+                    </p>
+
+                    <p>
+                        Performed functional testing,
+                        documented test cases,
+                        reported software bugs
+                        and evaluated user experience
+                        across an AI-powered marketing platform.
+                    </p>
+
+                </div>
+
             </div>
 
-            <h3>
-                Projects
-            </h3>
+        </div>
 
-            <p>
-                Explore software, web development,
-                embedded systems and IoT projects.
-            </p>
 
-            <span>
-                Explore Projects →
-            </span>
+        <!-- PC BUILDING -->
 
-        </a>
+        <div class="content-box experience-box">
 
-        <a asp-controller="Resume"
-           asp-action="Index"
-           class="option-card">
+            <div class="timeline-item">
 
-            <div class="option-number">
-                02
+                <div class="timeline-date">
+                    June 2026 - Present
+                </div>
+
+
+                <div class="timeline-content">
+
+                    <h3>
+                        PC Builder & Technician
+                    </h3>
+
+                    <p class="highlight-text">
+                        Independent
+                    </p>
+
+                    <p>
+                        Built, tested, troubleshot and sold
+                        custom gaming computers while working
+                        directly with customers on hardware,
+                        system configuration and technical support.
+                    </p>
+
+                </div>
+
             </div>
 
-            <h3>
-                Resume
-            </h3>
+        </div>
 
-            <p>
-                View my technical skills,
-                education and professional experience.
-            </p>
+    </div>
 
-            <span>
-                View Resume →
-            </span>
 
-        </a>
 
-        <a asp-controller="Contact"
-           asp-action="Index"
-           class="option-card">
+    <!-- ==============================
+         TECHNOLOGIES
+    =============================== -->
 
-            <div class="option-number">
-                03
+    <div class="about-block">
+
+        <h2 class="section-title">
+            Technologies & Skills
+        </h2>
+
+
+        <div class="content-box">
+
+            <div class="skills-grid">
+
+
+                <!-- LANGUAGES -->
+
+                <div class="skill-category">
+
+                    <h3>
+                        Languages
+                    </h3>
+
+                    <div class="skill-tags">
+
+                        <span>C#</span>
+
+                        <span>JavaScript</span>
+
+                        <span>C</span>
+
+                        <span>C++</span>
+
+                        <span>HTML</span>
+
+                        <span>CSS</span>
+
+                        <span>SQL</span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FRAMEWORKS -->
+
+                <div class="skill-category">
+
+                    <h3>
+                        Frameworks
+                    </h3>
+
+                    <div class="skill-tags">
+
+                        <span>ASP.NET Core MVC</span>
+
+                        <span>Entity Framework Core</span>
+
+                        <span>SignalR</span>
+
+                        <span>Bootstrap</span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TOOLS -->
+
+                <div class="skill-category">
+
+                    <h3>
+                        Tools
+                    </h3>
+
+                    <div class="skill-tags">
+
+                        <span>Git</span>
+
+                        <span>GitHub</span>
+
+                        <span>Visual Studio</span>
+
+                        <span>VS Code</span>
+
+                        <span>Azure</span>
+
+                        <span>Node-RED</span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- DATABASE -->
+
+                <div class="skill-category">
+
+                    <h3>
+                        Databases
+                    </h3>
+
+                    <div class="skill-tags">
+
+                        <span>SQL Server</span>
+
+                        <span>SQLite</span>
+
+                        <span>Azure SQL</span>
+
+                    </div>
+
+                </div>
+
             </div>
 
-            <h3>
-                Contact
-            </h3>
-
-            <p>
-                Get in touch with me about
-                opportunities or projects.
-            </p>
-
-            <span>
-                Contact Me →
-            </span>
-
-        </a>
+        </div>
 
     </div>
 
