@@ -1,5 +1,103 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model Project
+
 @{
+    ViewData["Title"] = Model.Title;
 }
+
+<section class="project-details">
+
+    <a asp-controller="Projects"
+       asp-action="Index"
+       class="back-link">
+
+        ← Back to Projects
+
+    </a>
+
+    <div class="project-detail-header">
+
+        <p>
+            PROJECT
+        </p>
+
+        <h1>
+            @Model.Title
+        </h1>
+
+        <p class="project-detail-description">
+
+            @Model.ShortDescription
+
+        </p>
+
+    </div>
+
+    <div class="project-detail-image">
+
+        <div class="large-placeholder">
+
+            Project Screenshot
+
+        </div>
+
+    </div>
+
+    <div class="project-information">
+
+        <div>
+
+            <h2>
+                About the Project
+            </h2>
+
+            <p>
+                @Model.Description
+            </p>
+
+        </div>
+
+        <div>
+
+            <h2>
+                Technologies
+            </h2>
+
+            <p>
+                @Model.Technologies
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="project-actions">
+
+        @if (!string.IsNullOrEmpty(Model.GitHubUrl))
+        {
+
+            <a href="@Model.GitHubUrl"
+               target="_blank"
+               class="btn btn-primary">
+
+                GitHub
+
+            </a>
+
+        }
+
+        @if (!string.IsNullOrEmpty(Model.DemoUrl))
+        {
+
+            <a href="@Model.DemoUrl"
+               target="_blank"
+               class="btn btn-secondary">
+
+                Live Demo
+
+            </a>
+
+        }
+
+    </div>
+
+</section>

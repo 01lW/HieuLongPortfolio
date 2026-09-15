@@ -1,5 +1,171 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    ViewData["Title"] = "Admin Dashboard";
 }
+
+<section class="admin-dashboard">
+
+    <div class="admin-heading">
+
+        <div>
+
+            <p>
+                ADMIN
+            </p>
+
+            <h1>
+                Dashboard
+            </h1>
+
+        </div>
+
+        <a asp-controller="Home"
+           asp-action="Index"
+           class="btn btn-secondary">
+
+            View Portfolio
+
+        </a>
+
+    </div>
+
+    <div class="dashboard-stats">
+
+        <div class="stat-card">
+
+            <p>
+                Projects
+            </p>
+
+            <h2>
+                3
+            </h2>
+
+        </div>
+
+        <div class="stat-card">
+
+            <p>
+                Messages
+            </p>
+
+            <h2>
+                0
+            </h2>
+
+        </div>
+
+        <div class="stat-card">
+
+            <p>
+                Portfolio Views
+            </p>
+
+            <h2>
+                -
+            </h2>
+
+        </div>
+
+    </div>
+
+    <div class="admin-options">
+
+        <div class="admin-card">
+
+            <h2>
+                Projects
+            </h2>
+
+            <p>
+                Add, edit or remove portfolio projects.
+            </p>
+
+            <button class="btn btn-primary">
+                Manage Projects
+            </button>
+
+        </div>
+
+        <div class="admin-card">
+
+            <h2>
+                Resume
+            </h2>
+
+            <p>
+                Upload and manage your current resume.
+            </p>
+
+            <button class="btn btn-primary">
+                Manage Resume
+            </button>
+
+        </div>
+
+        <div class="admin-card">
+
+            <h2>
+                Profile
+            </h2>
+
+            <p>
+                Update your profile information.
+            </p>
+
+            <button class="btn btn-primary">
+                Edit Profile
+            </button>
+
+        </div>
+
+        <div class="admin-card">
+
+            <h2>
+                Skills
+            </h2>
+
+            <p>
+                Manage technologies and technical skills.
+            </p>
+
+            <button class="btn btn-primary">
+                Manage Skills
+            </button>
+
+        </div>
+
+        <div class="admin-card">
+
+            <h2>
+                Messages
+            </h2>
+
+            <p>
+                Read messages submitted through your portfolio.
+            </p>
+
+            <button class="btn btn-primary">
+                View Messages
+            </button>
+
+        </div>
+
+        <div class="admin-card">
+
+            <h2>
+                Analytics
+            </h2>
+
+            <p>
+                View portfolio traffic and project statistics.
+            </p>
+
+            <button class="btn btn-primary">
+                View Analytics
+            </button>
+
+        </div>
+
+    </div>
+
+</section>

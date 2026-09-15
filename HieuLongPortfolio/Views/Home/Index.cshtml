@@ -1,8 +1,140 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<section class="hero">
+
+    <div class="hero-content">
+
+        <p class="hero-small">
+            HELLO, I'M
+        </p>
+
+        <h1>
+            Hieu Long
+        </h1>
+
+        <h2>
+            Computer Engineering Technology
+        </h2>
+
+        <p class="hero-description">
+
+            I build software, web applications
+            and technology projects using
+            modern development tools.
+
+        </p>
+
+        <div class="hero-buttons">
+
+            <a asp-controller="Projects"
+               asp-action="Index"
+               class="btn btn-primary">
+
+                View Projects
+
+            </a>
+
+            <a asp-controller="Resume"
+               asp-action="Index"
+               class="btn btn-secondary">
+
+                View Resume
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="home-options">
+
+    <div class="section-heading">
+
+        <p>
+            EXPLORE
+        </p>
+
+        <h2>
+            What would you like to see?
+        </h2>
+
+    </div>
+
+    <div class="option-grid">
+
+        <a asp-controller="Projects"
+           asp-action="Index"
+           class="option-card">
+
+            <div class="option-number">
+                01
+            </div>
+
+            <h3>
+                Projects
+            </h3>
+
+            <p>
+                Explore software, web development,
+                embedded systems and IoT projects.
+            </p>
+
+            <span>
+                Explore Projects →
+            </span>
+
+        </a>
+
+        <a asp-controller="Resume"
+           asp-action="Index"
+           class="option-card">
+
+            <div class="option-number">
+                02
+            </div>
+
+            <h3>
+                Resume
+            </h3>
+
+            <p>
+                View my technical skills,
+                education and professional experience.
+            </p>
+
+            <span>
+                View Resume →
+            </span>
+
+        </a>
+
+        <a asp-controller="Contact"
+           asp-action="Index"
+           class="option-card">
+
+            <div class="option-number">
+                03
+            </div>
+
+            <h3>
+                Contact
+            </h3>
+
+            <p>
+                Get in touch with me about
+                opportunities or projects.
+            </p>
+
+            <span>
+                Contact Me →
+            </span>
+
+        </a>
+
+    </div>
+
+</section>
