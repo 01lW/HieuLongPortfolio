@@ -4,6 +4,10 @@
 
 <section class="admin-dashboard">
 
+    <!-- =========================================
+         HEADER
+    ========================================== -->
+
     <div class="admin-heading">
 
         <div>
@@ -18,15 +22,42 @@
 
         </div>
 
-        <a asp-controller="Home"
-           asp-action="Index"
-           class="btn btn-secondary">
 
-            View Portfolio
+        <div class="admin-heading-actions">
 
-        </a>
+            <a asp-controller="Home"
+               asp-action="Index"
+               class="btn btn-secondary">
+
+                View Portfolio
+
+            </a>
+
+
+            <form asp-controller="Admin"
+                  asp-action="Logout"
+                  method="post"
+                  class="admin-logout-form">
+
+                @Html.AntiForgeryToken()
+
+                <button type="submit"
+                        class="btn btn-primary">
+
+                    Logout
+
+                </button>
+
+            </form>
+
+        </div>
 
     </div>
+
+
+    <!-- =========================================
+         STATS
+    ========================================== -->
 
     <div class="dashboard-stats">
 
@@ -37,10 +68,11 @@
             </p>
 
             <h2>
-                3
+                4
             </h2>
 
         </div>
+
 
         <div class="stat-card">
 
@@ -53,6 +85,7 @@
             </h2>
 
         </div>
+
 
         <div class="stat-card">
 
@@ -68,7 +101,15 @@
 
     </div>
 
+
+    <!-- =========================================
+         ADMIN OPTIONS
+    ========================================== -->
+
     <div class="admin-options">
+
+
+        <!-- PROJECTS -->
 
         <div class="admin-card">
 
@@ -80,11 +121,17 @@
                 Add, edit or remove portfolio projects.
             </p>
 
-            <button class="btn btn-primary">
+            <button type="button"
+                    class="btn btn-primary">
+
                 Manage Projects
+
             </button>
 
         </div>
+
+
+        <!-- RESUME -->
 
         <div class="admin-card">
 
@@ -96,11 +143,17 @@
                 Upload and manage your current resume.
             </p>
 
-            <button class="btn btn-primary">
+            <button type="button"
+                    class="btn btn-primary">
+
                 Manage Resume
+
             </button>
 
         </div>
+
+
+        <!-- PROFILE -->
 
         <div class="admin-card">
 
@@ -112,11 +165,17 @@
                 Update your profile information.
             </p>
 
-            <button class="btn btn-primary">
+            <button type="button"
+                    class="btn btn-primary">
+
                 Edit Profile
+
             </button>
 
         </div>
+
+
+        <!-- SKILLS -->
 
         <div class="admin-card">
 
@@ -128,11 +187,17 @@
                 Manage technologies and technical skills.
             </p>
 
-            <button class="btn btn-primary">
+            <button type="button"
+                    class="btn btn-primary">
+
                 Manage Skills
+
             </button>
 
         </div>
+
+
+        <!-- MESSAGES -->
 
         <div class="admin-card">
 
@@ -144,11 +209,17 @@
                 Read messages submitted through your portfolio.
             </p>
 
-            <button class="btn btn-primary">
+            <button type="button"
+                    class="btn btn-primary">
+
                 View Messages
+
             </button>
 
         </div>
+
+
+        <!-- ANALYTICS -->
 
         <div class="admin-card">
 
@@ -160,8 +231,11 @@
                 View portfolio traffic and project statistics.
             </p>
 
-            <button class="btn btn-primary">
+            <button type="button"
+                    class="btn btn-primary">
+
                 View Analytics
+
             </button>
 
         </div>

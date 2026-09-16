@@ -4,74 +4,96 @@
     ViewData["Title"] = "Projects";
 }
 
-<section class="page-header">
+<section class="projects-page">
 
-    <p>
-        MY WORK
-    </p>
-
-    <h1>
+    <h2 class="section-title">
         Projects
-    </h1>
+    </h2>
 
-    <p class="page-description">
-
-        A collection of projects involving
-        software development, web development,
-        IoT and embedded systems.
-
-    </p>
-
-</section>
-
-<section class="projects-section">
 
     <div class="project-grid">
 
         @foreach (var project in Model)
         {
+            string? projectUrl;
 
-            <div class="project-card">
+            if (project.Id == 4)
+            {
+                projectUrl = Url.Action(
+                    "PCBuilds",
+                    "Projects"
+                );
+            }
+            else
+            {
+                projectUrl = Url.Action(
+                    "Details",
+                    "Projects",
+                    new { id = project.Id }
+                );
+            }
 
-                <div class="project-image">
 
-                    <div class="image-placeholder">
+            <a href="@projectUrl"
+               class="project-card-link">
 
-                        @project.Title
+                <div class="project-card">
+
+                    <div class="project-image">
+
+                        @if (!string.IsNullOrEmpty(project.ImageUrl))
+                        {
+                            <img src="@project.ImageUrl"
+                                 alt="@project.Title"
+                                 class="project-image-real" />
+                        }
+                        else
+                        {
+                            <div class="image-placeholder">
+
+                                <h3>
+                                    @project.Title
+                                </h3>
+
+                            </div>
+                        }
+
+                    </div>
+
+
+                    <div class="project-content">
+
+                        <h2>
+                            @project.Title
+                        </h2>
+
+                        <p>
+                            @project.ShortDescription
+                        </p>
+
+                        <p class="technologies">
+                            @project.Technologies
+                        </p>
+
+
+                        @if (project.Id == 4)
+                        {
+                            <span class="project-link-text">
+                                View Builds →
+                            </span>
+                        }
+                        else
+                        {
+                            <span class="project-link-text">
+                                View Project →
+                            </span>
+                        }
 
                     </div>
 
                 </div>
 
-                <div class="project-content">
-
-                    <h2>
-                        @project.Title
-                    </h2>
-
-                    <p>
-                        @project.ShortDescription
-                    </p>
-
-                    <p class="technologies">
-
-                        @project.Technologies
-
-                    </p>
-
-                    <a asp-controller="Projects"
-                       asp-action="Details"
-                       asp-route-id="@project.Id"
-                       class="project-link">
-
-                        View Project →
-
-                    </a>
-
-                </div>
-
-            </div>
-
+            </a>
         }
 
     </div>
