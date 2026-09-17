@@ -1,13 +1,64 @@
+using HieuLongPortfolio.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.HttpOverrides;
 
-var builder = WebApplication.CreateBuilder(args);
+var builder =
+    WebApplication.CreateBuilder(args);
 
 
 // =========================================
-// SERVICES
+// RAILWAY PORT
+// =========================================
+
+var port =
+    Environment.GetEnvironmentVariable("PORT");
+
+if (!string.IsNullOrWhiteSpace(port))
+{
+    builder.WebHost.UseUrls(
+        $"http://0.0.0.0:{port}");
+}
+
+
+// =========================================
+// MVC
 // =========================================
 
 builder.Services.AddControllersWithViews();
+
+
+// =========================================
+// PROJECT STORAGE
+// =========================================
+
+builder.Services.AddSingleton<
+    IProjectRepository,
+    JsonProjectRepository>();
+
+
+// =========================================
+// RESUME STORAGE
+// =========================================
+
+builder.Services.AddSingleton<
+    IResumeRepository,
+    JsonResumeRepository>();
+
+
+// =========================================
+// FORWARDED HEADERS
+// =========================================
+
+builder.Services.Configure<ForwardedHeadersOptions>(
+    options =>
+    {
+        options.ForwardedHeaders =
+            ForwardedHeaders.XForwardedFor |
+            ForwardedHeaders.XForwardedProto;
+
+        options.KnownIPNetworks.Clear();
+        options.KnownProxies.Clear();
+    });
 
 
 // =========================================
@@ -15,34 +66,63 @@ builder.Services.AddControllersWithViews();
 // =========================================
 
 builder.Services
-    .AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddAuthentication(
+        CookieAuthenticationDefaults
+            .AuthenticationScheme)
     .AddCookie(options =>
     {
-        options.LoginPath = "/Admin/Login";
-        options.AccessDeniedPath = "/Admin/Login";
+        options.LoginPath =
+            "/Admin/Login";
 
-        options.Cookie.Name = "HieuLongPortfolio.Admin";
+        options.AccessDeniedPath =
+            "/Admin/Login";
 
-        options.Cookie.HttpOnly = true;
-        options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
-        options.Cookie.SameSite = SameSiteMode.Lax;
 
-        options.ExpireTimeSpan = TimeSpan.FromHours(8);
+        options.Cookie.Name =
+            "HieuLongPortfolio.Admin";
 
-        options.SlidingExpiration = true;
+
+        options.Cookie.HttpOnly =
+            true;
+
+
+        options.Cookie.SecurePolicy =
+            CookieSecurePolicy.SameAsRequest;
+
+
+        options.Cookie.SameSite =
+            SameSiteMode.Lax;
+
+
+        options.ExpireTimeSpan =
+            TimeSpan.FromHours(8);
+
+
+        options.SlidingExpiration =
+            true;
     });
 
 
-var app = builder.Build();
+var app =
+    builder.Build();
 
 
 // =========================================
-// ERROR HANDLING
+// FORWARDED HEADERS
+// =========================================
+
+app.UseForwardedHeaders();
+
+
+// =========================================
+// ERRORS
 // =========================================
 
 if (!app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Home/Error");
+    app.UseExceptionHandler(
+        "/Home/Error");
+
     app.UseHsts();
 }
 
@@ -57,20 +137,23 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-
-// IMPORTANT:
-// Authentication must come before Authorization.
 app.UseAuthentication();
 
 app.UseAuthorization();
 
 
 // =========================================
-// ROUTES
+// ROUTING
 // =========================================
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern:
+        "{controller=Home}/{action=Index}/{id?}");
+
+
+// =========================================
+// START APPLICATION
+// =========================================
 
 app.Run();

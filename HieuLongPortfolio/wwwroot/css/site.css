@@ -271,6 +271,268 @@ html[data-theme="light"] .navbar-toggler-icon {
     padding-top: 50px;
 }
 
+/* =========================================================
+   HOME GENERAL SPLIT
+========================================================= */
+
+.home-split {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+    gap: 45px;
+    align-items: center;
+}
+
+
+.home-split-reverse {
+    grid-template-columns: minmax(280px, 0.65fr) minmax(0, 1.35fr);
+}
+
+
+    .home-split-reverse .home-split-content {
+        order: 2;
+    }
+
+
+    .home-split-reverse .home-split-image {
+        order: 1;
+    }
+
+
+.home-split-content {
+    min-width: 0;
+}
+
+
+    .home-split-content p {
+        line-height: 1.75;
+    }
+
+
+
+/* =========================================================
+   INTRODUCTION / EDUCATION SQUARE IMAGE
+========================================================= */
+
+.home-split-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    align-self: center;
+    overflow: hidden;
+    border-radius: 18px;
+    border: 1px solid var(--border);
+    background: var(--surface-secondary);
+    box-shadow: 0 10px 30px var(--shadow);
+}
+
+
+    .home-split-image img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+
+
+/* =========================================================
+   EXPERIENCE FEATURE BOX
+========================================================= */
+
+.experience-feature {
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(280px, 0.7fr);
+    gap: 40px;
+    align-items: center;
+    margin-bottom: 28px;
+}
+
+
+    .experience-feature:last-child {
+        margin-bottom: 0;
+    }
+
+
+.experience-feature-content {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+    .experience-feature-content h3 {
+        font-size: 24px;
+        margin-top: 8px;
+        margin-bottom: 4px;
+    }
+
+
+    .experience-feature-content p {
+        line-height: 1.75;
+    }
+
+
+    .experience-feature-content .highlight-text {
+        margin-bottom: 16px;
+    }
+
+
+
+/* =========================================================
+   EXPERIENCE REVERSE
+========================================================= */
+
+.experience-feature-reverse {
+    grid-template-columns: minmax(280px, 0.7fr) minmax(0, 1.3fr);
+}
+
+
+    .experience-feature-reverse .experience-feature-content {
+        order: 2;
+    }
+
+
+    .experience-feature-reverse .experience-feature-image {
+        order: 1;
+    }
+
+
+
+/* =========================================================
+   EXPERIENCE SQUARE IMAGE
+========================================================= */
+
+.experience-feature-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    align-self: center;
+    overflow: hidden;
+    border-radius: 18px;
+    border: 1px solid var(--border);
+    background: var(--surface-secondary);
+    box-shadow: 0 10px 30px var(--shadow);
+}
+
+
+    .experience-feature-image img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+
+
+/* =========================================================
+   SKILLS
+========================================================= */
+
+.skills-content-box {
+    width: 100%;
+}
+
+
+.skills-introduction {
+    max-width: 850px;
+    margin-bottom: 35px;
+}
+
+
+    .skills-introduction p {
+        line-height: 1.75;
+    }
+
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .home-split,
+    .experience-feature {
+        grid-template-columns: minmax(0, 1.1fr) minmax(240px, 0.9fr);
+        gap: 30px;
+    }
+
+
+    .home-split-reverse,
+    .experience-feature-reverse {
+        grid-template-columns: minmax(240px, 0.9fr) minmax(0, 1.1fr);
+    }
+}
+
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .home-split,
+    .home-split-reverse,
+    .experience-feature,
+    .experience-feature-reverse {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+
+        .home-split-content,
+        .home-split-reverse .home-split-content,
+        .experience-feature-content,
+        .experience-feature-reverse .experience-feature-content {
+            order: 1;
+        }
+
+
+        .home-split-image,
+        .home-split-reverse .home-split-image,
+        .experience-feature-image,
+        .experience-feature-reverse .experience-feature-image {
+            order: 2;
+            width: 100%;
+            max-width: 420px;
+            aspect-ratio: 1 / 1;
+            justify-self: center;
+        }
+
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 500px) {
+
+    .home-split-image,
+    .experience-feature-image {
+        width: 100%;
+        max-width: 100%;
+        aspect-ratio: 1 / 1;
+        border-radius: 14px;
+    }
+
+
+    .experience-feature {
+        gap: 22px;
+    }
+}
 
 /* =========================================
    SHARED CONTENT BOX
@@ -2200,6 +2462,382 @@ html[data-theme="light"] .navbar-toggler-icon {
         padding: 24px;
     }
 
+    /* =========================================
+        ADMIN MESSAGES
+    ========================================= */
+
+    .admin-message {
+        margin-bottom: 25px;
+        padding: 15px 18px;
+        border-radius: 10px;
+        font-size: 14px;
+    }
+
+
+        .admin-message.success {
+            background: rgba(50, 160, 90, 0.12);
+            border: 1px solid rgba(50, 160, 90, 0.35);
+            color: var(--text-primary);
+        }
+
+
+        .admin-message.error {
+            background: rgba(210, 70, 70, 0.12);
+            border: 1px solid rgba(210, 70, 70, 0.35);
+            color: var(--text-primary);
+        }
+
+
+    /* =========================================
+        ADMIN PROJECT LIST
+    ========================================= */
+
+    .admin-project-list {
+        display: grid;
+        gap: 16px;
+    }
+
+
+    .admin-project-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 30px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 25px 28px;
+        box-shadow: 0 8px 25px var(--shadow);
+    }
+
+
+        .admin-project-item h2 {
+            font-size: 22px;
+            margin: 4px 0 6px;
+        }
+
+
+        .admin-project-item p {
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+
+    .admin-project-id {
+        color: var(--text-muted);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 1px;
+    }
+
+
+    .admin-project-actions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-shrink: 0;
+    }
+
+
+        .admin-project-actions form {
+            margin: 0;
+        }
+
+
+    /* =========================================
+        DELETE BUTTON
+    ========================================= */
+
+    .btn-danger-custom {
+        background: transparent;
+        color: #d9534f;
+        border: 1px solid rgba(217, 83, 79, 0.5);
+    }
+
+
+        .btn-danger-custom:hover {
+            background: rgba(217, 83, 79, 0.1);
+            color: #d9534f;
+        }
+
+
+    /* =========================================
+        ADMIN FORMS
+    ========================================= */
+
+    .admin-form-header {
+        margin-bottom: 30px;
+    }
+
+
+        .admin-form-header p {
+            color: var(--text-muted);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            margin-bottom: 5px;
+        }
+
+
+        .admin-form-header h1 {
+            font-size: 45px;
+        }
+
+
+    .admin-form-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        padding: 35px;
+        box-shadow: 0 8px 25px var(--shadow);
+    }
+
+
+    .admin-form-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+
+    .admin-form-card textarea {
+        resize: vertical;
+        min-height: 90px;
+    }
+
+
+    .admin-form-actions {
+        display: flex;
+        gap: 12px;
+        margin-top: 30px;
+    }
+
+
+    /* =========================================
+        ADMIN RESUME
+    ========================================= */
+
+    .admin-resume-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 30px;
+        margin-bottom: 20px;
+        box-shadow: 0 8px 25px var(--shadow);
+    }
+
+
+        .admin-resume-card h2 {
+            font-size: 23px;
+            margin-bottom: 8px;
+        }
+
+
+        .admin-resume-card p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+
+    /* =========================================
+        ADMIN MOBILE
+    ========================================= */
+
+    @media (max-width: 700px) {
+
+        .admin-project-item {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+
+        .admin-project-actions {
+            width: 100%;
+            flex-wrap: wrap;
+        }
+
+
+        .admin-form-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+
+    @media (max-width: 600px) {
+
+        .admin-project-actions {
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+
+            .admin-project-actions .btn,
+            .admin-project-actions form,
+            .admin-project-actions button {
+                width: 100%;
+            }
+
+
+            .admin-project-actions .btn,
+            .admin-project-actions button {
+                text-align: center;
+            }
+
+
+        .admin-form-card {
+            padding: 24px;
+        }
+
+
+        .admin-form-header h1 {
+            font-size: 36px;
+        }
+
+
+        .admin-form-actions {
+            flex-direction: column;
+        }
+
+
+            .admin-form-actions .btn {
+                width: 100%;
+                text-align: center;
+            }
+    }
+
+    /* =========================================
+        ADMIN RESUME EDITOR
+    ========================================= */
+
+    .admin-resume-editor {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        padding: 35px;
+        margin-bottom: 30px;
+        box-shadow: 0 8px 25px var(--shadow);
+    }
+
+
+    .admin-editor-heading {
+        margin-bottom: 35px;
+    }
+
+
+        .admin-editor-heading h2 {
+            font-size: 27px;
+            margin-bottom: 6px;
+        }
+
+
+        .admin-editor-heading p {
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+
+    /* =========================================
+        EDITOR SECTION
+    ========================================= */
+
+    .admin-editor-section {
+        padding: 35px 0;
+        border-top: 1px solid var(--border);
+    }
+
+
+        .admin-editor-section h3 {
+            font-size: 21px;
+            margin-bottom: 22px;
+        }
+
+
+    /* =========================================
+        REPEATED RESUME ITEMS
+    ========================================= */
+
+    .admin-repeat-item {
+        padding: 25px;
+        margin-bottom: 18px;
+        background: var(--surface-secondary);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+    }
+
+
+    .admin-repeat-number {
+        color: var(--text-muted);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+    }
+
+
+    /* =========================================
+        ADMIN FORM HELP
+    ========================================= */
+
+    .admin-form-help {
+        display: block;
+        color: var(--text-muted);
+        font-size: 12px;
+        margin-top: 7px;
+    }
+
+
+    /* =========================================
+        CURRENT RESUME FILE
+    ========================================= */
+
+    .admin-current-file {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 20px;
+        margin-bottom: 25px;
+        background: var(--surface-secondary);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+    }
+
+
+        .admin-current-file p {
+            color: var(--text-muted);
+            font-size: 13px;
+            margin: 3px 0 0;
+        }
+
+
+    /* =========================================
+        ADMIN RESUME MOBILE
+    ========================================= */
+
+    @media (max-width: 600px) {
+
+        .admin-resume-editor {
+            padding: 24px;
+        }
+
+
+        .admin-repeat-item {
+            padding: 20px;
+        }
+
+
+        .admin-current-file {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+
+            .admin-current-file .btn {
+                width: 100%;
+                text-align: center;
+            }
+    }
 
     /* =========================================
        PC BUILDING

@@ -4,10 +4,6 @@
 
 <section class="admin-dashboard">
 
-    <!-- =========================================
-         HEADER
-    ========================================== -->
-
     <div class="admin-heading">
 
         <div>
@@ -55,10 +51,6 @@
     </div>
 
 
-    <!-- =========================================
-         STATS
-    ========================================== -->
-
     <div class="dashboard-stats">
 
         <div class="stat-card">
@@ -68,7 +60,7 @@
             </p>
 
             <h2>
-                4
+                @ViewBag.ProjectCount
             </h2>
 
         </div>
@@ -77,11 +69,11 @@
         <div class="stat-card">
 
             <p>
-                Messages
+                Resume
             </p>
 
             <h2>
-                0
+                PDF
             </h2>
 
         </div>
@@ -90,11 +82,11 @@
         <div class="stat-card">
 
             <p>
-                Portfolio Views
+                Portfolio
             </p>
 
             <h2>
-                -
+                Live
             </h2>
 
         </div>
@@ -102,14 +94,7 @@
     </div>
 
 
-    <!-- =========================================
-         ADMIN OPTIONS
-    ========================================== -->
-
     <div class="admin-options">
-
-
-        <!-- PROJECTS -->
 
         <div class="admin-card">
 
@@ -121,17 +106,16 @@
                 Add, edit or remove portfolio projects.
             </p>
 
-            <button type="button"
-                    class="btn btn-primary">
+            <a asp-controller="Admin"
+               asp-action="ManageProjects"
+               class="btn btn-primary">
 
                 Manage Projects
 
-            </button>
+            </a>
 
         </div>
 
-
-        <!-- RESUME -->
 
         <div class="admin-card">
 
@@ -140,20 +124,19 @@
             </h2>
 
             <p>
-                Upload and manage your current resume.
+                Upload and replace your current PDF resume.
             </p>
 
-            <button type="button"
-                    class="btn btn-primary">
+            <a asp-controller="Admin"
+               asp-action="ManageResume"
+               class="btn btn-primary">
 
                 Manage Resume
 
-            </button>
+            </a>
 
         </div>
 
-
-        <!-- PROFILE -->
 
         <div class="admin-card">
 
@@ -162,20 +145,19 @@
             </h2>
 
             <p>
-                Update your profile information.
+                Profile editing will be added later.
             </p>
 
             <button type="button"
-                    class="btn btn-primary">
+                    class="btn btn-secondary"
+                    disabled>
 
-                Edit Profile
+                Coming Soon
 
             </button>
 
         </div>
 
-
-        <!-- SKILLS -->
 
         <div class="admin-card">
 
@@ -184,20 +166,19 @@
             </h2>
 
             <p>
-                Manage technologies and technical skills.
+                Skill management will be added later.
             </p>
 
             <button type="button"
-                    class="btn btn-primary">
+                    class="btn btn-secondary"
+                    disabled>
 
-                Manage Skills
+                Coming Soon
 
             </button>
 
         </div>
 
-
-        <!-- MESSAGES -->
 
         <div class="admin-card">
 
@@ -206,20 +187,19 @@
             </h2>
 
             <p>
-                Read messages submitted through your portfolio.
+                No contact form is connected yet.
             </p>
 
             <button type="button"
-                    class="btn btn-primary">
+                    class="btn btn-secondary"
+                    disabled>
 
-                View Messages
+                Coming Soon
 
             </button>
 
         </div>
 
-
-        <!-- ANALYTICS -->
 
         <div class="admin-card">
 
@@ -228,13 +208,14 @@
             </h2>
 
             <p>
-                View portfolio traffic and project statistics.
+                Analytics can later connect to LinkClicks.
             </p>
 
             <button type="button"
-                    class="btn btn-primary">
+                    class="btn btn-secondary"
+                    disabled>
 
-                View Analytics
+                Coming Soon
 
             </button>
 

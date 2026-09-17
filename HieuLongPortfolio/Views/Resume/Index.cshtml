@@ -1,4 +1,6 @@
-﻿@{
+﻿@model HieuLongPortfolio.Models.ResumeData
+
+@{
     ViewData["Title"] = "Resume";
 }
 
@@ -16,17 +18,24 @@
 
         <div class="resume-actions">
 
-            <a href="/files/HieuLongResume.pdf"
+            <a asp-controller="Resume"
+               asp-action="Pdf"
                target="_blank"
                rel="noopener noreferrer"
                class="btn btn-primary">
+
                 View PDF
+
             </a>
 
-            <a href="/files/HieuLongResume.pdf"
-               download
+
+            <a asp-controller="Resume"
+               asp-action="Pdf"
+               asp-route-download="true"
                class="btn btn-secondary">
+
                 Download PDF
+
             </a>
 
         </div>
@@ -35,7 +44,7 @@
 
 
     <!-- =========================================
-         PROFESSIONAL SUMMARY
+         SUMMARY
     ========================================== -->
 
     <section class="resume-section-block">
@@ -47,16 +56,7 @@
         <div class="resume-summary">
 
             <p>
-                Computer Engineering Technology graduate with hands-on
-                experience building and troubleshooting custom PCs,
-                developing web and IoT systems, and supporting customers
-                in fast-paced environments.
-            </p>
-
-            <p>
-                Skilled in Windows installation, hardware diagnostics,
-                C#, JavaScript, ASP.NET Core, SQL, Azure, Git/GitHub
-                and embedded systems.
+                @Model.ProfessionalSummary
             </p>
 
         </div>
@@ -77,22 +77,22 @@
         <div class="resume-entry">
 
             <div class="resume-date">
-                Graduated<br />
-                Apr. 30, 2026
+                @Model.Education.Date
             </div>
+
 
             <div class="resume-entry-content">
 
                 <h3>
-                    Computer Engineering Technology
+                    @Model.Education.Program
                 </h3>
 
                 <p class="resume-company">
-                    Algonquin College
+                    @Model.Education.School
                 </p>
 
                 <p class="resume-location">
-                    Ottawa, Ontario
+                    @Model.Education.Location
                 </p>
 
             </div>
@@ -112,214 +112,55 @@
             Experience
         </h2>
 
-        <!-- LinkClicks -->
-        <div class="resume-entry">
 
-            <div class="resume-date">
-                Aug. 2026<br />
-                – Present
-            </div>
+        @foreach (var experience in Model.Experiences)
+        {
+            <div class="resume-entry">
 
-            <div class="resume-entry-content">
+                <div class="resume-date">
+                    @experience.Date
+                </div>
 
-                <h3>
-                    QA / Software Testing Intern
-                </h3>
 
-                <p class="resume-company">
-                    LinkClicks
-                </p>
+                <div class="resume-entry-content">
 
-                <p class="resume-location">
-                    Volunteer Internship
-                </p>
+                    <h3>
+                        @experience.Title
+                    </h3>
 
-                <ul>
-                    <li>
-                        Perform functional testing on an AI-powered marketing
-                        platform across planning, advertising and web tools.
-                    </li>
+                    <p class="resume-company">
+                        @experience.Company
+                    </p>
 
-                    <li>
-                        Create structured test cases with clear steps,
-                        expected results, actual results and supporting evidence.
-                    </li>
 
-                    <li>
-                        Identify, reproduce and document software bugs,
-                        usability issues and inconsistent application behaviour.
-                    </li>
+                    @if (!string.IsNullOrWhiteSpace(
+                        experience.Location))
+                    {
+                        <p class="resume-location">
+                            @experience.Location
+                        </p>
+                    }
 
-                    <li>
-                        Retest reported issues after developer fixes and
-                        track their status through the QA workflow.
-                    </li>
 
-                    <li>
-                        Evaluate input validation, navigation, error handling
-                        and overall user experience across platform features.
-                    </li>
+                    @if (experience.Bullets.Any())
+                    {
+                        <ul>
 
-                </ul>
+                            @foreach (var bullet
+                                in experience.Bullets)
+                            {
+                                <li>
+                                    @bullet
+                                </li>
+                            }
+
+                        </ul>
+                    }
+
+                </div>
 
             </div>
-
-        </div>
-
-        <!-- PC Builder -->
-        <div class="resume-entry">
-
-            <div class="resume-date">
-                June 2026<br />
-                – Present
-            </div>
-
-            <div class="resume-entry-content">
-
-                <h3>
-                    Independent PC Builder & Technician
-                </h3>
-
-                <p class="resume-company">
-                    Self-Employed
-                </p>
-
-                <p class="resume-location">
-                    Ottawa, Ontario
-                </p>
-
-                <ul>
-                    <li>
-                        Build and configure custom desktop and gaming PCs
-                        based on customer budgets, performance needs,
-                        compatibility and upgrade goals.
-                    </li>
-
-                    <li>
-                        Diagnose hardware, driver, thermal, stability,
-                        storage and networking issues.
-                    </li>
-
-                    <li>
-                        Install Windows, drivers, updates and essential
-                        software.
-                    </li>
-
-                    <li>
-                        Benchmark and stress-test completed systems using
-                        3DMark, Cinebench, Unigine Heaven, HWiNFO and
-                        in-game testing.
-                    </li>
-
-                    <li>
-                        Manage component sourcing, pricing, negotiation,
-                        customer requirements, sales and post-sale
-                        technical support.
-                    </li>
-
-                    <li>
-                        Earned 21 consecutive five-star Facebook Marketplace
-                        reviews through reliable systems, clear communication
-                        and responsive support.
-                    </li>
-                </ul>
-
-            </div>
-
-        </div>
-
-
-        <!-- Pocket Forest -->
-        <div class="resume-entry">
-
-            <div class="resume-date">
-                2026
-            </div>
-
-            <div class="resume-entry-content">
-
-                <h3>
-                    UI Developer
-                </h3>
-
-                <p class="resume-company">
-                    Pocket Forest IoT Terrarium Controller
-                </p>
-
-                <p class="resume-location">
-                    Algonquin College · Team Project
-                </p>
-
-                <ul>
-                    <li>
-                        Collaborated in a four-person team with UI and
-                        hardware developers to build a smart terrarium
-                        controller.
-                    </li>
-
-                    <li>
-                        Designed and developed responsive HTML, CSS and
-                        JavaScript interfaces for dashboards,
-                        temperature/humidity monitoring, lighting controls,
-                        settings and system information.
-                    </li>
-
-                    <li>
-                        Implemented management for up to five terrariums,
-                        custom day-night lighting cycles and persistent
-                        journal data after terrarium archiving.
-                    </li>
-
-                    <li>
-                        Coordinated UI requirements with ESP32 sensor data
-                        and the hardware team.
-                    </li>
-                </ul>
-
-            </div>
-
-        </div>
-
-
-        <!-- Mac's Sushi -->
-        <div class="resume-entry">
-
-            <div class="resume-date">
-                Sep. 2024<br />
-                – Present
-            </div>
-
-            <div class="resume-entry-content">
-
-                <h3>
-                    Team Member
-                </h3>
-
-                <p class="resume-company">
-                    Mac’s Sushi
-                </p>
-
-                <p class="resume-location">
-                    Ottawa, Ontario
-                </p>
-
-                <ul>
-                    <li>
-                        Provide customer service, prepare food and maintain
-                        safety and cleanliness standards in a fast-paced
-                        team environment.
-                    </li>
-
-                    <li>
-                        Contributed to store operations when the franchise
-                        achieved first place in sales among 22 Mac’s Sushi
-                        franchises in Ontario.
-                    </li>
-                </ul>
-
-            </div>
-
-        </div>
+        }
 
     </section>
 
@@ -335,94 +176,43 @@
         </h2>
 
 
-        <!-- Event Manager -->
-        <div class="resume-project">
+        @foreach (var project in Model.Projects)
+        {
+            <div class="resume-project">
 
-            <h3>
-                Event Manager Web Application
-            </h3>
-
-            <p class="resume-project-tech">
-                ASP.NET Core MVC · C# · EF Core · Identity · SignalR ·
-                Azure SQL · Azure Blob Storage
-            </p>
-
-            <ul>
-                <li>
-                    Developed a full-stack event management application
-                    with event creation, attendee registration and tracking,
-                    seeded data and role-based access.
-                </li>
-
-                <li>
-                    Added real-time attendee updates with SignalR and
-                    integrated Azure Blob Storage, Azure SQL and
-                    Azure App Service deployment.
-                </li>
-            </ul>
-
-        </div>
+                <h3>
+                    @project.Title
+                </h3>
 
 
-        <!-- QNX -->
-        <div class="resume-project">
-
-            <h3>
-                QNX Real-Time Resource Manager
-            </h3>
-
-            <p class="resume-project-tech">
-                C · QNX Neutrino · Momentics IDE · Message Passing ·
-                Pulses · Timers
-            </p>
-
-            <ul>
-                <li>
-                    Built a QNX resource manager that registers a custom
-                    device under /dev/local/ and handles read/write requests.
-                </li>
-
-                <li>
-                    Used message passing, named channels, pulses, timers
-                    and connection handling for interprocess communication
-                    and clean shutdown.
-                </li>
-            </ul>
-
-        </div>
+                <p class="resume-project-tech">
+                    @project.Technologies
+                </p>
 
 
-        <!-- Node-RED -->
-        <div class="resume-project">
+                @if (project.Bullets.Any())
+                {
+                    <ul>
 
-            <h3>
-                Node-RED Temperature Dashboard
-            </h3>
+                        @foreach (var bullet
+                            in project.Bullets)
+                        {
+                            <li>
+                                @bullet
+                            </li>
+                        }
 
-            <p class="resume-project-tech">
-                Node-RED · Teensy · Firmata · JavaScript · REST API · MQTT
-            </p>
+                    </ul>
+                }
 
-            <ul>
-                <li>
-                    Built a real-time temperature dashboard using Teensy
-                    thermistor data with Celsius, Fahrenheit and Kelvin
-                    conversion.
-                </li>
-
-                <li>
-                    Created gauges, charts, controls, an HTTP GET endpoint
-                    returning JSON and MQTT communication.
-                </li>
-            </ul>
-
-        </div>
+            </div>
+        }
 
     </section>
 
 
     <!-- =========================================
-         TECHNICAL SKILLS
+         SKILLS
     ========================================== -->
 
     <section class="resume-section-block">
@@ -442,15 +232,11 @@
 
                 <div class="skill-tags">
 
-                    <span>Custom PC Assembly</span>
-                    <span>Compatibility</span>
-                    <span>Diagnostics</span>
-                    <span>Upgrades</span>
-                    <span>Thermal Troubleshooting</span>
-                    <span>Benchmarking</span>
-                    <span>Windows Installation</span>
-                    <span>Drivers</span>
-                    <span>Storage Setup</span>
+                    @foreach (var skill
+                        in Model.Skills.PcHardwareSupport)
+                    {
+                        <span>@skill</span>
+                    }
 
                 </div>
 
@@ -465,14 +251,11 @@
 
                 <div class="skill-tags">
 
-                    <span>C#</span>
-                    <span>Java</span>
-                    <span>C</span>
-                    <span>C++</span>
-                    <span>JavaScript</span>
-                    <span>PHP</span>
-                    <span>SQL</span>
-                    <span>HTML/CSS</span>
+                    @foreach (var skill
+                        in Model.Skills.Languages)
+                    {
+                        <span>@skill</span>
+                    }
 
                 </div>
 
@@ -487,13 +270,11 @@
 
                 <div class="skill-tags">
 
-                    <span>ASP.NET Core MVC</span>
-                    <span>Razor Pages</span>
-                    <span>Entity Framework Core</span>
-                    <span>SignalR</span>
-                    <span>Node.js</span>
-                    <span>REST APIs</span>
-                    <span>React</span>
+                    @foreach (var skill
+                        in Model.Skills.FrameworksTechnologies)
+                    {
+                        <span>@skill</span>
+                    }
 
                 </div>
 
@@ -508,9 +289,11 @@
 
                 <div class="skill-tags">
 
-                    <span>SQL Server</span>
-                    <span>SQLite</span>
-                    <span>MySQL</span>
+                    @foreach (var skill
+                        in Model.Skills.Databases)
+                    {
+                        <span>@skill</span>
+                    }
 
                 </div>
 
@@ -525,10 +308,11 @@
 
                 <div class="skill-tags">
 
-                    <span>Microsoft Azure</span>
-                    <span>Azure App Service</span>
-                    <span>Azure SQL</span>
-                    <span>Azure Blob Storage</span>
+                    @foreach (var skill
+                        in Model.Skills.CloudDeployment)
+                    {
+                        <span>@skill</span>
+                    }
 
                 </div>
 
@@ -543,15 +327,11 @@
 
                 <div class="skill-tags">
 
-                    <span>ESP32</span>
-                    <span>Teensy</span>
-                    <span>Node-RED</span>
-                    <span>MQTT</span>
-                    <span>Firmata</span>
-                    <span>QNX Neutrino</span>
-                    <span>Message Passing</span>
-                    <span>Pulses</span>
-                    <span>Timers</span>
+                    @foreach (var skill
+                        in Model.Skills.EmbeddedRealTime)
+                    {
+                        <span>@skill</span>
+                    }
 
                 </div>
 
@@ -566,18 +346,11 @@
 
                 <div class="skill-tags">
 
-                    <span>Git</span>
-                    <span>GitHub</span>
-                    <span>Visual Studio</span>
-                    <span>VS Code</span>
-                    <span>NetBeans</span>
-                    <span>Momentics IDE</span>
-                    <span>VirtualBox</span>
-                    <span>Postman</span>
-                    <span>3DMark</span>
-                    <span>Cinebench</span>
-                    <span>Unigine Heaven</span>
-                    <span>HWiNFO</span>
+                    @foreach (var skill
+                        in Model.Skills.Tools)
+                    {
+                        <span>@skill</span>
+                    }
 
                 </div>
 

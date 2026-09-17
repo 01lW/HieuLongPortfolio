@@ -1,0 +1,139 @@
+﻿@model IEnumerable<HieuLongPortfolio.Models.Project>
+
+@{
+    ViewData["Title"] = "Manage Projects";
+}
+
+<section class="admin-dashboard">
+
+    <div class="admin-heading">
+
+        <div>
+
+            <p>
+                ADMIN
+            </p>
+
+            <h1>
+                Projects
+            </h1>
+
+        </div>
+
+
+        <div class="admin-heading-actions">
+
+            <a asp-controller="Admin"
+               asp-action="Index"
+               class="btn btn-secondary">
+
+                Dashboard
+
+            </a>
+
+            <a asp-controller="Admin"
+               asp-action="CreateProject"
+               class="btn btn-primary">
+
+                Add Project
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="admin-message success">
+            @TempData["SuccessMessage"]
+        </div>
+    }
+
+
+    <div class="admin-project-list">
+
+        @foreach (var project in Model)
+        {
+            <div class="admin-project-item">
+
+                <div>
+
+                    <span class="admin-project-id">
+                        #@project.Id
+                    </span>
+
+                    <h2>
+                        @project.Title
+                    </h2>
+
+                    <p>
+                        @project.ShortDescription
+                    </p>
+
+                </div>
+
+
+                <div class="admin-project-actions">
+
+                    @if (project.Id == 4)
+                    {
+                        <a asp-controller="Projects"
+                           asp-action="PCBuilds"
+                           target="_blank"
+                           class="btn btn-secondary">
+
+                            View
+
+                        </a>
+                    }
+                    else
+                    {
+                        <a asp-controller="Projects"
+                           asp-action="Details"
+                           asp-route-id="@project.Id"
+                           target="_blank"
+                           class="btn btn-secondary">
+
+                            View
+
+                        </a>
+                    }
+
+
+                    <a asp-controller="Admin"
+                       asp-action="EditProject"
+                       asp-route-id="@project.Id"
+                       class="btn btn-primary">
+
+                        Edit
+
+                    </a>
+
+
+                    <form asp-controller="Admin"
+                          asp-action="DeleteProject"
+                          asp-route-id="@project.Id"
+                          method="post"
+                          onsubmit="return confirm('Delete this project?');">
+
+                        @Html.AntiForgeryToken()
+
+                        <button type="submit"
+                                class="btn btn-danger-custom">
+
+                            Delete
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+        }
+
+    </div>
+
+</section>

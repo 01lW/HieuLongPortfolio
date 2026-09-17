@@ -1,0 +1,204 @@
+﻿@model HieuLongPortfolio.Models.AdminProjectViewModel
+
+
+<div asp-validation-summary="ModelOnly"
+     class="login-error">
+</div>
+
+
+<div class="admin-form-grid">
+
+    <div class="form-group">
+
+        <label asp-for="Title"></label>
+
+        <input asp-for="Title" />
+
+        <span asp-validation-for="Title"
+              class="login-error">
+        </span>
+
+    </div>
+
+
+    <div class="form-group">
+
+        <label asp-for="ProjectType"></label>
+
+        <input asp-for="ProjectType" />
+
+    </div>
+
+</div>
+
+
+<div class="form-group">
+
+    <label asp-for="ShortDescription"></label>
+
+    <textarea asp-for="ShortDescription"
+              rows="3">
+    </textarea>
+
+    <span asp-validation-for="ShortDescription"
+          class="login-error">
+    </span>
+
+</div>
+
+
+<div class="form-group">
+
+    <label asp-for="Description"></label>
+
+    <textarea asp-for="Description"
+              rows="6">
+    </textarea>
+
+    <span asp-validation-for="Description"
+          class="login-error">
+    </span>
+
+</div>
+
+
+<div class="admin-form-grid">
+
+    <div class="form-group">
+
+        <label asp-for="Technologies"></label>
+
+        <input asp-for="Technologies" />
+
+    </div>
+
+
+    <div class="form-group">
+
+        <label asp-for="Hardware"></label>
+
+        <input asp-for="Hardware" />
+
+    </div>
+
+
+    <div class="form-group">
+
+        <label asp-for="Role"></label>
+
+        <input asp-for="Role" />
+
+    </div>
+
+
+    <div class="form-group">
+
+        <label asp-for="Team"></label>
+
+        <input asp-for="Team" />
+
+    </div>
+
+</div>
+
+
+<div class="form-group">
+
+    <label asp-for="MyContribution"></label>
+
+    <textarea asp-for="MyContribution"
+              rows="5">
+    </textarea>
+
+</div>
+
+
+<div class="form-group">
+
+    <label asp-for="SystemArchitecture"></label>
+
+    <textarea asp-for="SystemArchitecture"
+              rows="5">
+    </textarea>
+
+</div>
+
+
+<div class="form-group">
+
+    <label asp-for="ImageUrl"></label>
+
+    <input asp-for="ImageUrl"
+           placeholder="/images/project/image.jpg" />
+
+</div>
+
+
+<div class="admin-form-grid">
+
+    <div class="form-group">
+
+        <label asp-for="GitHubUrl"></label>
+
+        <input asp-for="GitHubUrl" />
+
+    </div>
+
+
+    <div class="form-group">
+
+        <label asp-for="DemoUrl"></label>
+
+        <input asp-for="DemoUrl" />
+
+    </div>
+
+</div>
+
+
+<div class="form-group">
+
+    <label asp-for="GalleryImagesText"></label>
+
+    <textarea asp-for="GalleryImagesText"
+              rows="4"
+              placeholder="One image path per line">
+    </textarea>
+
+</div>
+
+
+<div class="form-group">
+
+    <label asp-for="FeaturesText"></label>
+
+    <textarea asp-for="FeaturesText"
+              rows="6"
+              placeholder="One feature per line">
+    </textarea>
+
+</div>
+
+
+<div class="form-group">
+
+    <label asp-for="TestingText"></label>
+
+    <textarea asp-for="TestingText"
+              rows="6"
+              placeholder="One test item per line">
+    </textarea>
+
+</div>
+
+
+<div class="form-group">
+
+    <label asp-for="ChallengesText"></label>
+
+    <textarea asp-for="ChallengesText"
+              rows="6"
+              placeholder="One challenge per line">
+    </textarea>
+
+</div>

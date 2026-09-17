@@ -1,0 +1,153 @@
+{
+  "ProfessionalSummary": "Computer Engineering Technology graduate with hands-on experience in software QA, building and troubleshooting custom PCs, developing web and IoT systems, and supporting customers in fast-paced environments. Skilled in Windows installation, hardware diagnostics, C#, JavaScript, ASP.NET Core, SQL, Azure, Git/GitHub, embedded systems and functional software testing.",
+  "Education": {
+    "Program": "Computer Engineering Technology",
+    "School": "Algonquin College",
+    "Location": "Ottawa, Ontario",
+    "Date": "Graduated Apr. 30, 2026"
+  },
+  "Experiences": [
+    {
+      "Title": "QA / Software Testing Intern",
+      "Company": "LinkClicks",
+      "Location": "",
+      "Date": "Aug. 2026 \u2013 Present",
+      "Bullets": [
+        "Perform functional testing on an AI-powered marketing platform across planning, advertising and web tools.",
+        "Create structured test cases with clear steps, expected results, actual results and supporting evidence.",
+        "Identify, reproduce and document software bugs, usability issues and inconsistent application behaviour.",
+        "Retest reported issues after developer fixes and track their status through the QA workflow.",
+        "Evaluate input validation, navigation, error handling and overall user experience across platform features."
+      ]
+    },
+    {
+      "Title": "Independent PC Builder \u0026 Technician",
+      "Company": "Self-Employed",
+      "Location": "Ottawa, Ontario",
+      "Date": "June 2026 \u2013 Present",
+      "Bullets": [
+        "Build and configure custom desktop and gaming PCs based on customer budgets, performance needs, component compatibility and upgrade goals.",
+        "Diagnose hardware, driver, thermal, stability, storage and networking issues; install Windows, drivers, updates and essential software.",
+        "Benchmark and stress-test completed systems using 3DMark, Cinebench, Unigine Heaven, HWiNFO and in-game testing.",
+        "Manage component sourcing, pricing, negotiation, sales listings, customer requirements, delivery and post-sale technical support.",
+        "Earned 21 consecutive five-star Facebook Marketplace reviews by delivering reliable systems, clear communication and responsive support."
+      ]
+    },
+    {
+      "Title": "UI Developer",
+      "Company": "Pocket Forest IoT Terrarium Controller \u2013 Team Project",
+      "Location": "Algonquin College, Ottawa, Ontario",
+      "Date": "2026",
+      "Bullets": [
+        "Collaborated in a four-person team with UI and hardware developers to build a smart terrarium controller.",
+        "Designed and developed responsive HTML, CSS and JavaScript interfaces for dashboards, temperature and humidity monitoring, lighting controls, settings and system information.",
+        "Implemented management for up to five terrariums, custom day-night lighting cycles and journal data that remains available after terrarium archiving.",
+        "Coordinated UI requirements with ESP32 sensor data, SD-card storage and the hardware team\u0027s planned JSON structure."
+      ]
+    },
+    {
+      "Title": "Team Member",
+      "Company": "Mac\u0027s Sushi",
+      "Location": "Ottawa, Ontario",
+      "Date": "September 2025 \u2013 Present",
+      "Bullets": [
+        "Provide customer service, prepare food and maintain safety and cleanliness standards in a fast-paced team environment.",
+        "Contributed to store operations when the franchise achieved first place in sales among 22 Mac\u0027s Sushi franchises in Ontario."
+      ]
+    }
+  ],
+  "Projects": [
+    {
+      "Title": "Event Manager Web Application",
+      "Technologies": "ASP.NET Core MVC, C#, EF Core, Identity, SignalR, Azure SQL, Azure Blob Storage",
+      "Bullets": [
+        "Developed a full-stack event management application with event creation, attendee registration and tracking, seeded data and role-based access for organizers and attendees.",
+        "Added real-time attendee updates with SignalR and integrated Azure Blob Storage, Azure SQL and Azure App Service deployment."
+      ]
+    },
+    {
+      "Title": "QNX Real-Time Resource Manager",
+      "Technologies": "C, QNX Neutrino, Momentics IDE, Message Passing, Pulses, Timers",
+      "Bullets": [
+        "Built a QNX resource manager that registers a custom device under /dev/local/ and handles read/write requests.",
+        "Used message passing, named channels, pulses, timers and connection handling to support interprocess communication and clean shutdown."
+      ]
+    },
+    {
+      "Title": "Node-RED Temperature Dashboard",
+      "Technologies": "Node-RED, Teensy, Firmata, JavaScript, REST API, MQTT",
+      "Bullets": [
+        "Built a real-time temperature dashboard using Teensy thermistor data with Celsius, Fahrenheit and Kelvin conversion.",
+        "Created gauges, charts, controls, an HTTP GET endpoint returning JSON and MQTT communication."
+      ]
+    }
+  ],
+  "Skills": {
+    "PcHardwareSupport": [
+      "Custom PC Assembly",
+      "Component Compatibility",
+      "Diagnostics",
+      "Upgrades",
+      "Thermal Troubleshooting",
+      "Benchmarking",
+      "Windows Installation",
+      "Drivers",
+      "Storage Setup"
+    ],
+    "Languages": [
+      "C#",
+      "Java",
+      "C",
+      "C\u002B\u002B",
+      "JavaScript",
+      "PHP",
+      "SQL",
+      "HTML/CSS"
+    ],
+    "FrameworksTechnologies": [
+      "ASP.NET Core MVC",
+      "Razor Pages",
+      "Entity Framework Core",
+      "SignalR",
+      "Node.js",
+      "REST APIs",
+      "React"
+    ],
+    "Databases": [
+      "SQL Server",
+      "SQLite",
+      "MySQL"
+    ],
+    "CloudDeployment": [
+      "Microsoft Azure",
+      "Azure App Service",
+      "Azure SQL",
+      "Azure Blob Storage"
+    ],
+    "EmbeddedRealTime": [
+      "ESP32",
+      "Teensy",
+      "Node-RED",
+      "MQTT",
+      "Firmata",
+      "QNX Neutrino",
+      "Message Passing",
+      "Pulses",
+      "Timers"
+    ],
+    "Tools": [
+      "Git",
+      "GitHub",
+      "Visual Studio",
+      "VS Code",
+      "NetBeans",
+      "Momentics IDE",
+      "VirtualBox",
+      "Postman",
+      "3DMark",
+      "Cinebench",
+      "Unigine Heaven",
+      "HWiNFO"
+    ]
+  }
+}

@@ -7,4 +7,12 @@
     <UserSecretsId>4186b7a0-d53c-4c9e-ae42-cc98cf26f5a6</UserSecretsId>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Content Include="App_Data\HieuLongResume.pdf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\files\" />
+  </ItemGroup>
+
 </Project>

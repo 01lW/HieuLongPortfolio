@@ -1,0 +1,534 @@
+﻿@model HieuLongPortfolio.Models.AdminResumeViewModel
+
+@{
+    ViewData["Title"] = "Manage Resume";
+}
+
+<section class="admin-dashboard">
+
+    <div class="admin-heading">
+
+        <div>
+
+            <p>
+                ADMIN
+            </p>
+
+            <h1>
+                Resume
+            </h1>
+
+        </div>
+
+
+        <div class="admin-heading-actions">
+
+            <a asp-controller="Resume"
+               asp-action="Index"
+               target="_blank"
+               class="btn btn-secondary">
+
+                View Resume Page
+
+            </a>
+
+
+            <a asp-controller="Admin"
+               asp-action="Index"
+               class="btn btn-secondary">
+
+                Dashboard
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="admin-message success">
+            @TempData["SuccessMessage"]
+        </div>
+    }
+
+
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="admin-message error">
+            @TempData["ErrorMessage"]
+        </div>
+    }
+
+
+    <!-- =========================================
+         WEB RESUME
+    ========================================== -->
+
+    <div class="admin-resume-editor">
+
+        <div class="admin-editor-heading">
+
+            <h2>
+                Web Resume
+            </h2>
+
+            <p>
+                Changes here update the Resume page
+                on your portfolio.
+            </p>
+
+        </div>
+
+
+        <form asp-controller="Admin"
+              asp-action="SaveWebResume"
+              method="post">
+
+            @Html.AntiForgeryToken()
+
+
+            <!-- SUMMARY -->
+
+            <div class="admin-editor-section">
+
+                <h3>
+                    Professional Summary
+                </h3>
+
+                <div class="form-group">
+
+                    <textarea asp-for="ProfessionalSummary"
+                              rows="6">
+                    </textarea>
+
+                </div>
+
+            </div>
+
+
+            <!-- EDUCATION -->
+
+            <div class="admin-editor-section">
+
+                <h3>
+                    Education
+                </h3>
+
+
+                <div class="admin-form-grid">
+
+                    <div class="form-group">
+
+                        <label asp-for="EducationProgram">
+                            Program
+                        </label>
+
+                        <input asp-for="EducationProgram" />
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label asp-for="EducationSchool">
+                            School
+                        </label>
+
+                        <input asp-for="EducationSchool" />
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label asp-for="EducationLocation">
+                            Location
+                        </label>
+
+                        <input asp-for="EducationLocation" />
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label asp-for="EducationDate">
+                            Date
+                        </label>
+
+                        <input asp-for="EducationDate" />
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- EXPERIENCE -->
+
+            <div class="admin-editor-section">
+
+                <h3>
+                    Experience
+                </h3>
+
+
+                @for (var i = 0;
+                    i < Model.Experiences.Count;
+                    i++)
+                {
+                    <div class="admin-repeat-item">
+
+                        <div class="admin-repeat-number">
+                            Experience @(i + 1)
+                        </div>
+
+
+                        <div class="admin-form-grid">
+
+                            <div class="form-group">
+
+                                <label>
+                                    Job Title
+                                </label>
+
+                                <input asp-for="Experiences[i].Title" />
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label>
+                                    Company
+                                </label>
+
+                                <input asp-for="Experiences[i].Company" />
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label>
+                                    Location
+                                </label>
+
+                                <input asp-for="Experiences[i].Location" />
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label>
+                                    Date
+                                </label>
+
+                                <input asp-for="Experiences[i].Date" />
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Bullet Points
+                            </label>
+
+                            <textarea asp-for="Experiences[i].BulletsText"
+                                      rows="8">
+                            </textarea>
+
+                            <small class="admin-form-help">
+                                One bullet per line.
+                            </small>
+
+                        </div>
+
+                    </div>
+                }
+
+            </div>
+
+
+            <!-- PROJECTS -->
+
+            <div class="admin-editor-section">
+
+                <h3>
+                    Technical Projects
+                </h3>
+
+
+                @for (var i = 0;
+                    i < Model.Projects.Count;
+                    i++)
+                {
+                    <div class="admin-repeat-item">
+
+                        <div class="admin-repeat-number">
+                            Project @(i + 1)
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Project Title
+                            </label>
+
+                            <input asp-for="Projects[i].Title" />
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Technologies
+                            </label>
+
+                            <input asp-for="Projects[i].Technologies" />
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Bullet Points
+                            </label>
+
+                            <textarea asp-for="Projects[i].BulletsText"
+                                      rows="6">
+                            </textarea>
+
+                            <small class="admin-form-help">
+                                One bullet per line.
+                            </small>
+
+                        </div>
+
+                    </div>
+                }
+
+            </div>
+
+
+            <!-- SKILLS -->
+
+            <div class="admin-editor-section">
+
+                <h3>
+                    Technical Skills
+                </h3>
+
+
+                <div class="admin-form-grid">
+
+                    <div class="form-group">
+
+                        <label asp-for="PcHardwareSupport">
+                            PC Hardware & Support
+                        </label>
+
+                        <textarea asp-for="PcHardwareSupport"
+                                  rows="8">
+                        </textarea>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label asp-for="Languages">
+                            Languages
+                        </label>
+
+                        <textarea asp-for="Languages"
+                                  rows="8">
+                        </textarea>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label asp-for="FrameworksTechnologies">
+                            Frameworks & Technologies
+                        </label>
+
+                        <textarea asp-for="FrameworksTechnologies"
+                                  rows="8">
+                        </textarea>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label asp-for="Databases">
+                            Databases
+                        </label>
+
+                        <textarea asp-for="Databases"
+                                  rows="8">
+                        </textarea>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label asp-for="CloudDeployment">
+                            Cloud & Deployment
+                        </label>
+
+                        <textarea asp-for="CloudDeployment"
+                                  rows="8">
+                        </textarea>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label asp-for="EmbeddedRealTime">
+                            Embedded & Real-Time
+                        </label>
+
+                        <textarea asp-for="EmbeddedRealTime"
+                                  rows="8">
+                        </textarea>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label asp-for="Tools">
+                        Tools
+                    </label>
+
+                    <textarea asp-for="Tools"
+                              rows="8">
+                    </textarea>
+
+                </div>
+
+
+                <p class="admin-form-help">
+                    Enter one skill per line.
+                </p>
+
+            </div>
+
+
+            <div class="admin-form-actions">
+
+                <button type="submit"
+                        class="btn btn-primary">
+
+                    Save Web Resume
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+
+    <!-- =========================================
+         PDF RESUME
+    ========================================== -->
+
+    <div class="admin-resume-editor">
+
+        <div class="admin-editor-heading">
+
+            <h2>
+                PDF Resume
+            </h2>
+
+            <p>
+                This file is used by the View PDF and
+                Download PDF buttons.
+            </p>
+
+        </div>
+
+
+        @if (Model.CurrentResumeExists)
+        {
+            <div class="admin-current-file">
+
+                <div>
+
+                    <strong>
+                        HieuLongResume.pdf
+                    </strong>
+
+                    <p>
+                        Current portfolio resume PDF
+                    </p>
+
+                </div>
+
+
+                <a asp-controller="Resume"
+                   asp-action="Pdf"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="btn btn-secondary">
+
+                    View PDF
+
+                </a>
+
+            </div>
+        }
+
+
+        <form asp-controller="Admin"
+              asp-action="UploadResume"
+              method="post"
+              enctype="multipart/form-data">
+
+            @Html.AntiForgeryToken()
+
+
+            <div class="form-group">
+
+                <label asp-for="ResumeFile">
+                    Select New PDF
+                </label>
+
+                <input asp-for="ResumeFile"
+                       type="file"
+                       accept=".pdf,application/pdf" />
+
+            </div>
+
+
+            <button type="submit"
+                    class="btn btn-primary">
+
+                Replace PDF
+
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
